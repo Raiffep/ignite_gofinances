@@ -11,7 +11,7 @@ import {
 
 import theme from './src/global/styles/themes';
 import Dashboard from './src/screens/Dashboard';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StatusBar } from 'react-native';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,6 +27,7 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content"/>
         <Dashboard />
       </SafeAreaView>
     </ThemeProvider>
