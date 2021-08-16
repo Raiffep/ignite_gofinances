@@ -10,7 +10,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/themes';
-import Dashboard from './src/screens/Dashboard';
+import Register from './src/screens/Register';
 import { SafeAreaView, StatusBar } from 'react-native';
 
 export default function App() {
@@ -28,7 +28,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <SafeAreaView style={{ flex: 1 }}>
         <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content"/>
-        <Dashboard />
+        <Register />
       </SafeAreaView>
     </ThemeProvider>
   );
