@@ -34,5 +34,6 @@ export const TransactionsTypes = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 8px 0 16px 0;
 `;
 
