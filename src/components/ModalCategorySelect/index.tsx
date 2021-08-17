@@ -31,6 +31,11 @@ const ModalCategorySelect = ({
   setCategory,
   closeSelectCategory
 }: Props) => {
+
+  const handleCategorySelect = (item: ICategory) => {
+    setCategory(item);
+  }
+
   return (
     <Container>
       <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content"/>
@@ -43,7 +48,10 @@ const ModalCategorySelect = ({
         keyExtractor={(item) => item.key}
         ItemSeparatorComponent={() => <Separator />}
         renderItem={({ item }) => (
-          <Category>
+          <Category
+            onPress={() => handleCategorySelect(item)}
+            isActive={category.key === item.key}
+          >
             <Icon name={item.icon} />
             <Name>{item.name}</Name>
           </Category>
