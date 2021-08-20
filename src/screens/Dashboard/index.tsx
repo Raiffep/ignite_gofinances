@@ -11,6 +11,7 @@ import {
   UserView,
   UserGretting,
   UserName,
+  LogoutButton,
   PowerIcon,
   HighLightCardsList,
   TransactionsList,
@@ -56,22 +57,24 @@ const Dashboard: React.FC = () => {
     },
     date: "08/04/2020"
   }
-];
+  ];
 
   return (
     <Container>
       <Header>
         <UserWrapper>
           <UserInfo>
-            <UserAvatar source={{ 
-              uri: 'https://avatars.githubusercontent.com/u/30874251?v=4.png' 
+            <UserAvatar source={{
+              uri: 'https://avatars.githubusercontent.com/u/30874251?v=4.png'
             }} />
             <UserView>
               <UserGretting>Olá, </UserGretting>
               <UserName>Raiffe</UserName>
             </UserView>
           </UserInfo>
-          <PowerIcon />
+          <LogoutButton onPress={() => {}}>
+            <PowerIcon />
+          </LogoutButton>
         </UserWrapper>
       </Header>
       <HighLightCardsList>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 
@@ -10,7 +11,7 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/themes';
-import Register from './src/screens/Register';
+import { AppRoutes } from './src/routes/app.routes';
 import { SafeAreaView, StatusBar } from 'react-native';
 
 export default function App() {
@@ -20,16 +21,18 @@ export default function App() {
     Poppins_700Bold
   });
 
-  if(!fontsLoaded) {
+  if (!fontsLoaded) {
     return <AppLoading />
   }
-  
+
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaView style={{ flex: 1 }}>
-        <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content"/>
-        <Register />
-      </SafeAreaView>
-    </ThemeProvider>
+    <NavigationContainer>
+      <ThemeProvider theme={theme}>
+        <SafeAreaView style={{ flex: 1 }}>
+          <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content" />
+          <AppRoutes />
+        </SafeAreaView>
+      </ThemeProvider>
+    </NavigationContainer>
   );
 }
