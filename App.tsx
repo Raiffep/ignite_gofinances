@@ -1,4 +1,6 @@
 import React from 'react';
+import 'intl';
+import 'intl/locale-data/jsonp/pt-BR';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
@@ -11,7 +13,8 @@ import {
 } from '@expo-google-fonts/poppins';
 
 import theme from './src/global/styles/themes';
-import { AppRoutes } from './src/routes/app.routes';
+import { AuthProvider } from './src/hooks/auth';
+import { Routes } from './src/routes';
 import { SafeAreaView, StatusBar } from 'react-native';
 
 export default function App() {
@@ -26,13 +29,13 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <ThemeProvider theme={theme}>
-        <SafeAreaView style={{ flex: 1 }}>
-          <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content" />
-          <AppRoutes />
-        </SafeAreaView>
-      </ThemeProvider>
-    </NavigationContainer>
+    <ThemeProvider theme={theme}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content" />
+        <AuthProvider>
+          <Routes />
+        </AuthProvider>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }
