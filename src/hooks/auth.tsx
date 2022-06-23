@@ -51,6 +51,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       const SCOPE = encodeURI('profile email');
 
       const authUrl = `${BASE_AUTH_URL}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}&scope=${SCOPE}`;
+      console.log(authUrl)
 
       const { params, type } = await AuthSession.startAsync({ 
         authUrl 

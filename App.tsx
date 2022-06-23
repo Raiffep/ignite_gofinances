@@ -30,6 +30,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <SafeAreaView style={{ flex: 0, backgroundColor: theme.colors.primary }} />
       <SafeAreaView style={{ flex: 1 }}>
         <StatusBar backgroundColor={theme.colors.primary} barStyle="light-content" />
         <AuthProvider>
